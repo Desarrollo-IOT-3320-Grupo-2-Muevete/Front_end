@@ -5,7 +5,6 @@
 //control.
 
 export const environment = {
-  production: false,
-  serverBasePath: 'http://localhost:8082/api/v1',
-  keyGoogle:'AIzaSyDMV3i8LKs4cJYqnT0I_hwv-mw_u55x4VE'
+  production: true,
+  serverBasePath: 'https://ecomovil-api.onrender.com/api/v1'
 };
