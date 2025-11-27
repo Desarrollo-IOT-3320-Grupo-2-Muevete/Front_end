@@ -1,46 +1,37 @@
 import { Component } from '@angular/core';
-import {Router} from "@angular/router";
-import {AuthenticationService} from "../../services/authentication.service";
-import {MatButton} from "@angular/material/button";
+import { Router } from "@angular/router";
+import { AuthenticationService } from "../../services/authentication.service";
+import { MatButtonModule } from "@angular/material/button"; // Importa el modulo completo
+import { MatCardModule } from "@angular/material/card";     // Para que se vea bonito en una tarjeta
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-authentication-section',
   standalone: true,
   imports: [
-    MatButton
+    CommonModule,
+    MatButtonModule,
+    MatCardModule
   ],
   templateUrl: './authentication-section.component.html',
   styleUrl: './authentication-section.component.css'
 })
 export class AuthenticationSectionComponent {
-  currentUserName: string = '';
-  isSignedIn: boolean = false;
-  constructor(private router: Router, private authenticationService: AuthenticationService) {
-    this.authenticationService.currentUsername.subscribe((username) => this.currentUserName = username);
-    this.authenticationService.isSignedIn.subscribe((isSignedIn) => this.isSignedIn = isSignedIn);
-  }
 
-  /**
-   * Event Handler for the sign-in button.
-   */
+  constructor(private router: Router, private authenticationService: AuthenticationService) {}
+
+  // Navegar al Login
   onSignIn() {
-    // Navigate to the sign-in page.
-    this.router.navigate(['/sign-in']).then();
+    this.router.navigate(['/sign-in']); // O la ruta que uses para login
   }
 
-  /**
-   * Event Handler for the sign-up button.
-   */
-  onSignUp() {
-    // Navigate to the sign-up page.
-    this.router.navigate(['/sign-up']).then();
+  // Navegar al registro de Estudiantes
+  onRegisterStudent() {
+    this.router.navigate(['/registerUniversity']);
   }
 
-  /**
-   * Event Handler for the sign-out button.
-   */
-  onSignOut() {
-    // Sign out the user.
-    this.authenticationService.signOut();
+  // Navegar al registro de Organizaciones
+  onRegisterOrganization() {
+    this.router.navigate(['/registerOrganization']);
   }
 }

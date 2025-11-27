@@ -1,0 +1,29 @@
+<div class="auth-container">
+  <mat-card class="auth-card">
+    <mat-card-header>
+      <mat-card-title>Bienvenido a Muévete</mat-card-title>
+      <mat-card-subtitle>Selecciona tu tipo de cuenta para comenzar</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content class="auth-content">
+      <p>¿Cómo deseas registrarte hoy?</p>
+
+      <div class="button-group">
+        <button mat-raised-button color="primary" class="big-btn" (click)="onRegisterStudent()">
+          <i class="pi pi-user" style="margin-right: 8px;"></i>
+          Soy Estudiante Universitario
+        </button>
+
+        <button mat-raised-button color="accent" class="big-btn" (click)="onRegisterOrganization()">
+          <i class="pi pi-building" style="margin-right: 8px;"></i>
+          Soy una Organización
+        </button>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions class="auth-actions">
+      <span>¿Ya tienes una cuenta?</span>
+      <button mat-button color="primary" (click)="onSignIn()">Inicia Sesión aquí</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

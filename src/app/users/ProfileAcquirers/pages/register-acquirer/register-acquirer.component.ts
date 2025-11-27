@@ -69,7 +69,7 @@ export class RegisterAcquirerComponent implements OnInit {
 
         this.profileAccountService.addAccount(this.profile); // ✅ Ya no es un Observable
         this.submitted = true;
-        window.location.href = '/login'; // O mejor: this.router.navigate(['/login']);
+        window.location.href = '/sign-in'; // O mejor: this.router.navigate(['/login']);
       },
       error: err => {
         alert('Error al registrarse');

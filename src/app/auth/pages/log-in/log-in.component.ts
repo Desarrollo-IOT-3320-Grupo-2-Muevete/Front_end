@@ -55,13 +55,13 @@ export class LogInComponent implements OnInit {
         } else {
           console.error('No se recibió un token válido.');
           alert('Credenciales incorrectas. Intenta de nuevo.');
-          this.router.navigate(['/login']); // 👈 Fuerza retorno al login
+          this.router.navigate(['/sign-in']); // 👈 Fuerza retorno al login
         }
       },
       error: (err) => {
         console.error('Error al iniciar sesión:', err);
         alert('Usuario o contraseña incorrectos.');
-        this.router.navigate(['/login']); // 👈 También redirige manualmente en error
+        this.router.navigate(['/sign-in']); // 👈 También redirige manualmente en error
       }
     });
   }
