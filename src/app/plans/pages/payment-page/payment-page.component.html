@@ -1,13 +1,57 @@
+<app-header-acquirer></app-header-acquirer>
 
-<div class = "page">
-  <div class="columna"></div>
-  <div class="columna columna-mayor">
-    <div class="title" style="color: #1ACD81"><h2> {{ 'proceed_checkout' | translate }}</h2></div>
-    <h6  class="componente-h" >{{ 'review_purchase' | translate }}</h6>
-    <h6  class="componente-h" >{{ 'total_amount' | translate }}: {{this.paymentService.getCost()}} $</h6>
-    <div class="componente"><app-payment></app-payment></div>
+<div class="min-h-screen bg-gray-50 flex flex-col justify-center items-center py-12 sm:px-6 lg:px-8">
 
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+      {{ 'proceed_checkout' | translate }}
+    </h2>
+    <p class="mt-2 text-center text-sm text-gray-600">
+      {{ 'review_purchase' | translate }}
+    </p>
+  </div>
+
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white py-8 px-4 shadow-xl rounded-lg sm:px-10 border border-gray-100">
+
+      <div class="mb-6">
+        <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">Order Summary</h3>
+
+        <div class="flex justify-between items-center py-3 border-b border-gray-100">
+          <span class="text-gray-600">Plan Selected</span>
+          <span class="font-bold text-gray-800">{{ selectedPlan }}</span>
+        </div>
+
+        <div class="flex justify-between items-center py-3 border-b border-gray-100">
+          <span class="text-gray-600">Billing Cycle</span>
+          <span class="text-gray-800">Monthly</span>
+        </div>
+
+        <div class="flex justify-between items-center py-4">
+          <span class="text-lg font-bold text-gray-900">{{ 'total_amount' | translate }}</span>
+          <span class="text-2xl font-bold text-customGreen">${{ amount }}</span>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <div class="w-full flex justify-center">
+          <app-payment></app-payment>
+        </div>
+
+        <div class="mt-4 text-center">
+          <p class="text-xs text-gray-400 flex items-center justify-center gap-1">
+            <i class="material-icons text-xs">lock</i>
+            Payments are secure and encrypted
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <button (click)="goBack()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded focus:outline-none transition duration-200">
+          Cancel & Go Back
+        </button>
+      </div>
+
+    </div>
   </div>
 </div>
-
-

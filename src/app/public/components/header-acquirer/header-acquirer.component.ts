@@ -29,7 +29,8 @@ export class HeaderAcquirerComponent {
   options = [
     {path: '/home', title: 'Home'},
     {path: '/interactiveMap', title: 'Map'},
-    {path: '/filter', title: 'Filter'}
+    {path: '/filter', title: 'Filter'},
+    {path: '/plans', title: 'Plans'}
   ];
 
   // Función real de Logout
