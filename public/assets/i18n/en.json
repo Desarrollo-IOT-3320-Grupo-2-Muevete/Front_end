@@ -54,6 +54,8 @@
   "sign_up": "Sign Up",
   "name": "Name",
   "phone": "Phone",
-  "rental_price": "Rental Price"
-
+  "rental_price": "Rental Price",
+  "price_order": "Sort by Price",
+  "no_vehicles_available": "No vehicles found for this category",
+  "view_details": "View Details"
 }

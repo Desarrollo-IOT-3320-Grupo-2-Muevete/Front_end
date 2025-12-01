@@ -1,9 +1,54 @@
-<app-header></app-header>
+<app-header-acquirer></app-header-acquirer>
 
-<div class = "page page container mx-auto px-4 py-3 flex items-center justify-center">
-  <div class="columna columna-mayor">
-    <div class="title text-4xl mr-auto font-bold text-customGreen"  style="margin-left: 40px; color: #1ACD81"><h2>{{ 'publication_plans' | translate }}</h2></div>
-    <h6  class="componente-h" style="margin-left: 40px; color: #939393">{{ 'choose_plan' | translate }}</h6>
-    <div class="componente"><app-plan-list [planes]="planes"></app-plan-list></div>
+<div class="min-h-screen bg-gray-50 pb-20">
+
+  <div class="text-center pt-16 pb-12 px-4">
+    <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+      {{ 'publication_plans' | translate }}
+    </h1>
+    <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">
+      {{ 'choose_plan' | translate }}
+    </p>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+      <div *ngFor="let plan of planes"
+           class="relative flex flex-col bg-white rounded-2xl shadow-xl overflow-hidden transition-transform hover:-translate-y-2 border border-gray-100"
+           [ngClass]="{'ring-2 ring-green-500': plan.recommended}">
+
+        <div *ngIf="plan.recommended" class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wide">
+          Recommended
+        </div>
+
+        <div class="p-8 flex-1">
+          <h3 class="text-xl font-semibold text-gray-900">{{ plan.name }}</h3>
+          <p class="mt-4 flex items-baseline text-gray-900">
+            <span class="text-5xl font-extrabold tracking-tight">${{ plan.price }}</span>
+            <span class="ml-1 text-xl font-semibold text-gray-500">/mo</span>
+          </p>
+          <p class="mt-6 text-gray-500">Perfect for daily commuting.</p>
+
+          <ul role="list" class="mt-6 space-y-6">
+            <li *ngFor="let feature of plan.features" class="flex">
+              <mat-icon class="text-green-500 flex-shrink-0 w-6 h-6">check_circle</mat-icon>
+              <span class="ml-3 text-gray-500">{{ feature }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-8 bg-gray-50">
+          <button mat-raised-button
+                  color="primary"
+                  class="w-full py-2 text-lg font-bold shadow-none"
+                  [ngClass]="{'bg-green-600 text-white': plan.recommended}"
+                  (click)="selectPlan(plan.name)">
+            Select {{ plan.name }}
+          </button>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
